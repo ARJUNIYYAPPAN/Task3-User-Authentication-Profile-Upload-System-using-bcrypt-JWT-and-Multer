@@ -1,0 +1,49 @@
+Task3:User Authentication & Profile Upload System using bcrypt, JWT, and Multer
+Objective:
+Build a mini backend system using Express.js that supports:
+User registration with password hashing using bcrypt
+User login with password comparison and JWT token generation
+Profile picture upload using multer
+Authenticated profile fetch using JWT verification
+Password hashing and validation with bcrypt
+Token-based authentication with jsonwebtoken
+File upload with multer
+Middleware structure in Express
+Clean folder structure and error handling ===> must required
+Project Structure (Recommended):
+ 
+/user-auth-api
+├── controllers/
+│ └── authController.js
+├── middlewares/
+│ ├── uploadMiddleware.js
+│ └── authMiddleware.js
+├── models/
+│ └── userModel.js
+├── routes/
+│ └── authRoutes.js
+├── app.js
+├── .env
+└── package.json
+Task Requirements:
+1. User Registration (POST /register)
+Accept fields: name, email, password, profile (image)
+Use bcrypt to hash the password before saving
+Save the image to the uploads/ folder using multer
+Save the user data (including image filename) to MongoDB
+2. User Login (POST /login)
+Accept email and password
+Compare password using bcrypt
+If valid, return a JWT token valid for 1 hour
+3. Protected Route: Get Profile (GET /profile)
+Require JWT token in Authorization header
+Return logged-in user details (without password)
+Also return profile image URL
+4. Middleware Requirements
+uploadMiddleware.js: Setup multer for handling file upload(max size in 1Mb)
+authMiddleware.js: Verify JWT token and attach user to req.user
+How to Start:
+Run npm init -y
+Install dependencies:
+npm install express mongoose bcrypt jsonwebtoken multer dotenv
+Start coding from app.js connect MongoDB => connection.js
